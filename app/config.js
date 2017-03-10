@@ -1,13 +1,13 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/shortlydb');
+
+mongoURI = 'mongodb://localhost/shortlydb';
+mongoose.connect(mongoURI);
+
+// Run in seperate terminal window using 'mongod'
 var db = mongoose.connection;
-
-db.on('error', function() {
-  console.error.bind(console, 'cannot access database:');
-});
-
-db.once('open', function() {
-  console.log('success');
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function () {
+  console.log('Mongodb connection open');
 });
 
 module.exports = db;
