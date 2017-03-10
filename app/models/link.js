@@ -3,12 +3,14 @@ var crypto = require('crypto');
 var mongoose = require('mongoose');
 
 var linkSchema = mongoose.Schema({
-  url: String,
-  base_url: String,
-  code: String,
+  visits: Number,
+  link: String,
   title: String,
-  visit: Number
+  code: String,
+  baseUrl: String,
+  url: String
 });
+
 
 var Link = mongoose.model('Link', linkSchema);
 
